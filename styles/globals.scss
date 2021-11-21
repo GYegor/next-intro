@@ -1,0 +1,37 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Dancing Script", Comforter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  // text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  position: fixed;
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(204, 122, 14);
+}
+
+main {
+  margin: 80px 0 20px;
+  padding: 0 20px;
+}
+
+.error {
+  color: red;
+}
