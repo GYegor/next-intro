@@ -1,6 +1,5 @@
 import { MainLayout } from "../layouts/MainLayout";
 
-
 const Index: React.FC = () => {
   return (
   <MainLayout title="Home">

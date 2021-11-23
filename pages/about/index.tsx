@@ -19,7 +19,7 @@ About.getInitialProps = async () => {
 
   return {
     title: data.title
-  }
+  };
 }
 
 export default About;

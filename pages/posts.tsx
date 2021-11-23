@@ -1,39 +1,39 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react';
 import {NextPage, NextPageContext} from 'next';
 import {useRouter} from "next/router";
 import Link from "next/link";
 
 import {MainLayout} from "../layouts/MainLayout";
-import {MyPost} from "../interfaces/post"
+import {MyPost} from "../interfaces/post";
 
 interface PostsProps {
   posts: MyPost[];
 }
 
-const useUser = () => ({ user: 'Me', loading: false })
+const useUser = () => ({ user: 'Me', loading: false });
 
 const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
-  const [posts, setPosts] = useState(serverPosts)
+  const [posts, setPosts] = useState(serverPosts);
   const { user, loading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
     if (!(user || loading)) {
-      router.push('/')
+      router.push('/');
     }
-  }, [user, loading, router])
+  }, [user, loading, router]);
 
   useEffect(() => {
     async function load() {
       const res = await fetch(`${process.env.BASE_API_URL}/posts`)
       const data = await res.json();
-      setPosts(data)
+      setPosts(data);
       }
     
     if (!serverPosts) {
       load();
     }
-  }, [])
+  }, []);
 
   if (!posts) {
     return (
@@ -62,11 +62,11 @@ const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
 
 Posts.getInitialProps = async ({ req }: NextPageContext) => {
   if (!req) { // means we already on front and has no req
-    return { posts: null } 
+    return { posts: null };
   }
-  const res = await fetch(`${process.env.BASE_API_URL}/posts`)
-  const posts = await res.json()
-  return { posts }
+  const res = await fetch(`${process.env.BASE_API_URL}/posts`);
+  const posts = await res.json();
+  return { posts };
 }
 
 export default Posts;

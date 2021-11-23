@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  message?: string
+  message?: string;
 }
 
 export default function echo(
